@@ -1,6 +1,6 @@
 <template>
   
-  <div class="block p-6 border rounded-lg shadow bg-gray-800 border-gray-500">
+  <article class="block p-6 border rounded-lg shadow bg-gray-800 border-gray-500">
     <div class="flex items-center justify-between mb-4">
       <span class="text-sm font-bold leading-none text-gray-50">In progress</span>
       <div class="flex justify-end">
@@ -39,8 +39,7 @@
     </div>
     <h5 class="mb-3 text-lg font-medium text-gray-50 dark:text-white">Bonnie Green</h5>
     <p class="text-md text-gray-200" >Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid, est sequi debitis illum at minus officia omnis nemo voluptas necessitatibus sed enim ex modi, officiis magni amet consequuntur assumenda facilis.</p>
-  </div>
-
+  </article>
 </template>
 
 <script>

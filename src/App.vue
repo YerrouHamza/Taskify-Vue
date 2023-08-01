@@ -21,7 +21,7 @@ export default {
 <style>
   :root {
     --page-width: 1300px;
-    --body-bg: #2f2f2f;
+    --body-bg: #2d2d2d;
     --body-color: #e7e7e7;
   }
   

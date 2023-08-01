@@ -3,7 +3,7 @@
   <article class="block p-6 border rounded-lg shadow bg-gray-800 border-gray-500">
     <div class="flex items-center justify-between mb-4">
       <span class="text-sm font-bold leading-none text-gray-50">In progress</span>
-      <div class="flex justify-end">
+      <div class="flex justify-end gap-1">
         <!-- View Button -->
         <button class="inline-block text-gray-300 hover:bg-gray-600 focus:ring-4 focus:outline-none focus:ring-gray-500 rounded-lg text-sm p-1.5" type="button">
           <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-eye" width="24" height="24" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">

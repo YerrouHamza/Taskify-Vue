@@ -1,5 +1,5 @@
 <template>
-  <main class="flex justify-start flex-col gap-14 px-5 pt-20">
+  <main class="flex justify-start flex-col gap-14 px-5 pt-20 pb-10">
     <header>
       <h1 class="text-5xl font-medium text-left">My Tasks</h1>
     </header>

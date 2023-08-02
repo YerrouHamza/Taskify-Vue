@@ -6,6 +6,7 @@ const store = createStore({
     state: {
         title: 'test',
         modalAddTask: false,
+        modalEditTask: false,
         taskList: [
             {
                 id: 0,
@@ -37,7 +38,8 @@ const store = createStore({
                 statue: 'in progres' /* 'in progres' 'review', 'done', 'panding' */,
                 text: 'lorem lorem lorem lorem lorem lorem lorem lorem lorem'
             }
-        ]
+        ],
+        lastTaskId: 0,
     }, 
     mutations: {
         // remove task
@@ -51,6 +53,25 @@ const store = createStore({
         },
         closeModalAddTask(state) {
             state.modalAddTask = false
+        },
+
+        // edit task modal controls
+        openModalEditTask(state) {
+            state.modalEditTask = true
+        },
+        closeModalEditTask(state) {
+            state.modalEditTask = false
+        },
+
+        // add task
+        addTask(state, newTask) {
+            const index = state.taskList.length; // get the id from task array index
+            
+            // push the new task
+            state.taskList.push({
+                id: index,
+                ...newTask
+            })
         }
     },
     actions: {
@@ -66,6 +87,21 @@ const store = createStore({
         closeModalAddTask({ commit }) {
             commit('closeModalAddTask');
         },
+
+        // edit task modal
+        openModalEditTask({ commit }) {
+            commit('openModalEditTask')
+        },
+        closeModalEditTask({ commit }) {
+            commit('closeModalEditTask')
+        },
+
+        // add new task
+        addTask({commit}, newTask) {
+            commit('addTask', newTask);
+            commit('closeModalAddTask');
+        }
+
     },
 })
 

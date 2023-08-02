@@ -1,13 +1,13 @@
 <template>
     <Teleport to="body">
         <Transition name="modal-outer">
-            <div v-show="modalActive" class="absolute bg-gray-900 w-full bg-opacity-30 min-h-full top-0 left-0 flex justify-center items-center px-8 py-4">
+            <div v-show="modalOpen" class="absolute bg-gray-900 w-full bg-opacity-30 min-h-full top-0 left-0 flex justify-center items-center px-8 py-4">
                 <!-- Add Task Modal -->
                 <Transition name="modal-inner">
-                    <div v-if="modalAddTaskActive" class="relative w-full max-w-xl max-h-full">
+                    <div v-if="modalOpen" class="relative w-full max-w-xl max-h-full">
                         <!-- Modal content -->
                         <div class="relative bg-white rounded-lg shadow bg-gray-900">
-                            <button type="button" class="absolute top-[1.7rem] right-7 text-gray-200 bg-transparent hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center hover:bg-gray-600" data-modal-hide="authentication-modal" @click="closeAddTaskModal">
+                            <button type="button" class="absolute top-[1.7rem] right-7 text-gray-200 bg-transparent hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center hover:bg-gray-600" @click="closeAppModal">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="30" height="30" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                     <path d="M18 6l-12 12"></path>
@@ -101,15 +101,21 @@
 </template>
 
 <script setup>
-    import { ref } from 'vue'
-    const modalActive = ref(true);
-    const modalAddTaskActive = ref(true);
-    const modalEditTaskActive = ref(false);
+    import { useStore } from "vuex";
+    import { ref } from "vue";
+    
+    const modalOpen = ref(false)
+    const store = useStore();
 
-    const closeAddTaskModal = () => {
-        modalActive.value = false;
-        modalAddTaskActive.value = false
+    // handel close modal
+    const closeAppModal = () => {
+        store.dispatch('closeModalAddTask')
     }
+
+    // watch the store modaladdTask for togglen the add task modal
+    store.watch(() => store.state.modalAddTask, (newValue) => {
+        modalOpen.value = newValue
+    })
 </script>
 
 <style scoped>

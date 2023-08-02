@@ -8,19 +8,15 @@
     </section>
 </template>
 
-<script>
+<script setup>
+import { ref } from 'vue';
 // import the components
 import TaskCard from './TaskCard.vue';
 import AddTaskCard from './AddTaskCard.vue';
 
-export default {
-    name: 'TaskList',
-    components: {
-        TaskCard,
-        AddTaskCard
-    }
-    
-}
+const test = ref(false)
+
+console.log(test.value)
 </script>
 
 <style>

@@ -7,15 +7,9 @@
   </main>
 </template>
 
-<script>
+<script setup>
 import TaskList from './components/TaskList.vue';
 
-export default {
-  name: 'App',
-  components: {
-    TaskList
-  }
-}
 </script>
 
 <style>
@@ -36,6 +30,9 @@ export default {
   body {
     background-color: var(--body-bg);
     color: var(--body-color);
+    min-height: 100vh;
+    height: 100%;
+    position: relative;
   }
 
   main {

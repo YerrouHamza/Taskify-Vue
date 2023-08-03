@@ -66,9 +66,10 @@
     const store = useStore();
 
     const addNewTask = () => {
+        
         // Check if the title, statue, and text fields are not empty
-        if (newTask.value.title && newTask.value.statue && newTask.value.text) {
-            store.dispatch('addTask', { ...newTask.value });
+        if (newTask.value.title && newTask.value.statue && newTask.value.text && newTask.value.statue !== 'select' ) {
+            store.dispatch('addTask', { ...newTask.value } );
             clearForm();
         } else {
             errorMissage.value = true
@@ -78,7 +79,7 @@
     // clear the from after submited the new task
     const clearForm = () => {
         newTask.value.title = '';
-        newTask.value.statue = '';
+        newTask.value.statue = 'select';
         newTask.value.text = '';
         errorMissage.value = false;
     };

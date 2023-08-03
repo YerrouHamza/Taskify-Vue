@@ -43,7 +43,7 @@ const store = createStore({
 
         // add task
         addTask(state, newTask) {
-            const index = state.taskList.length; // get the id from task array index
+            const index = state.taskList.length + 1; // get the id from task array index
             
             // push the new task
             state.taskList.push({

@@ -24,7 +24,7 @@
                                     <select v-model="newTask.statue" id="AddTaskStatue" class="border text-gray-200 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 focus:ring-blue-500 focus:border-blue-500">
                                         <option value="select" selected disabled>Choose a Status</option>
                                         <option value="In Progress">In Progress</option>
-                                        <option value="Panding">Panding</option>
+                                        <option value="Pending">Pending</option>
                                         <option value="Review">Review</option>
                                         <option value="Done">Done</option>
                                         <option value="In Hold">In Hold</option>

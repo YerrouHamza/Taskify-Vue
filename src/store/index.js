@@ -74,7 +74,7 @@ const store = createStore({
         },
         // remove task
         removeTask({ commit }, taskId) {
-            commit('removeTask', taskId)
+            commit('removeTask', taskId);
         },
 
         // add task modal

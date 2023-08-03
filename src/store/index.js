@@ -1,46 +1,18 @@
-// import { createApp } from "vue";
 import { createStore } from "vuex";
-// import axios from 'axios'
+import axios from 'axios'
 
 const store = createStore({
     state: {
         modalAddTask: false,
         modalEditTask: false,
         selecteTask: null,
-        taskList: [
-            {
-                id: 0,
-                title: 'test 1',
-                statue: 'In Progres' /* 'in progres' 'review', 'done', 'panding' */,
-                text: 'lorem lorem lorem lorem lorem lorem lorem lorem lorem'
-            },
-            {
-                id: 1,
-                title: 'test 2',
-                statue: 'In Hold' /* 'in progres' 'review', 'done', 'panding' */,
-                text: 'lorem lorem lorem lorem lorem lorem lorem lorem lorem'
-            },
-            {
-                id: 2,
-                title: 'test 3',
-                statue: 'Review' /* 'in progres' 'review', 'done', 'panding' */,
-                text: 'lorem lorem lorem lorem lorem lorem lorem lorem lorem'
-            },
-            {
-                id: 3,
-                title: 'test 4',
-                statue: 'Panding' /* 'in progres' 'review', 'done', 'panding' */,
-                text: 'lorem lorem lorem lorem lorem lorem lorem lorem lorem'
-            },
-            {
-                id: 4,
-                title: 'test 5',
-                statue: 'In Progres' /* 'in progres' 'review', 'done', 'panding' */,
-                text: 'lorem lorem lorem lorem lorem lorem lorem lorem lorem'
-            }
-        ]
+        taskList: []
     }, 
     mutations: {
+        setTaskList(state, newTasks) {
+            state.taskList = newTasks;
+        },
+
         // remove task
         removeTask(state, taskId) {
             state.taskList = state.taskList.filter((task) => task.id !== taskId);
@@ -87,6 +59,16 @@ const store = createStore({
         }
     },
     actions: {
+        // Fetch tasks from JSON file using Axios
+        async fetchTasks({ commit }) {
+            try {
+              const response = await axios.get('/tasks.json'); 
+              const tasks = response.data.tasks;
+              commit('setTaskList', tasks); // Update the Tasks
+            } catch (error) {
+              console.error('Error:', error);
+            }
+        },
         // remove task
         removeTask({ commit }, taskId) {
             commit('removeTask', taskId)
@@ -117,12 +99,10 @@ const store = createStore({
             commit('closeModalAddTask');
         },
 
-        // Update existing task
-        updateTask({ commit }, updatedTask) {
-            commit('updateTask', updatedTask);
+        async editTask({ commit }, updatedTask) {
+            commit("updateTask", updatedTask);
             commit('closeModalEditTask');
         }
-
     },
 })
 

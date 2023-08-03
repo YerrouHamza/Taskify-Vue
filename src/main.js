@@ -7,4 +7,9 @@ const app = createApp(App);
 
 app.use(store);
 
+// Fetch tasks on app initialization
+store.dispatch('fetchTasks');
+
+
+
 app.mount("#app");

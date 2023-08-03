@@ -1,6 +1,6 @@
 <template>
   
-  <article class="block p-6 border rounded-lg shadow bg-gray-800 border-gray-500">
+  <article class="block p-6 border rounded-lg shadow bg-gray-800 border-gray-500 min-h-[220px]">
     <div class="flex items-center justify-between mb-4">
       <span class="text-sm font-bold leading-none text-gray-50">{{ props.statue }}</span>
       <div class="flex justify-end gap-1">

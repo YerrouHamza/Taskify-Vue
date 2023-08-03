@@ -37,6 +37,9 @@ const store = createStore({
         setSelectedTask(state, taskId) {
             state.selecteTask = state.taskList.find(item => item.id === taskId )
         },
+        clearSelectedtask(state) {
+            state.selecteTask = null;
+        },
 
         // add task
         addTask(state, newTask) {
@@ -76,7 +79,7 @@ const store = createStore({
 
         // add task modal
         openModalAddTask({commit}) {
-            commit('openModalAddTask')
+            commit('openModalAddTask');
         },
         closeModalAddTask({ commit }) {
             commit('closeModalAddTask');
@@ -84,10 +87,11 @@ const store = createStore({
 
         // edit task modal
         openModalEditTask({ commit }) {
-            commit('openModalEditTask')
+            commit('openModalEditTask');
         },
         closeModalEditTask({ commit }) {
-            commit('closeModalEditTask')
+            commit('closeModalEditTask');
+            commit('clearSelectedtask');
         },
         setSelectedTask({ commit }, taskId) {
             commit('setSelectedTask', taskId)

@@ -57,11 +57,13 @@
     
     const modalOpen = ref(false);
     const taskEdit = ref(null);
+    // const targetTask = ref(null);
     const errorMissage = ref(false)
     const store = useStore();
     
     // handel close modal
     const closeEditModal = () => {
+        taskEdit.value = null;
         store.dispatch('closeModalEditTask')
     }
 
@@ -79,7 +81,7 @@
 
     // watch the selecteTask
     store.watch(() => store.state.selecteTask, (newValue) => {
-        taskEdit.value = newValue
+        taskEdit.value = { ...newValue };
     })
     // watch the store modalEditTask for togglen the add task modal
     store.watch(() => store.state.modalEditTask, (newValue) => {

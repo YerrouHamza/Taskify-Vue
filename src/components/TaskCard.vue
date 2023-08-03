@@ -48,8 +48,8 @@
 
   // open edit task modal
   const openModalFunction = (taskId) => {
-    store.dispatch('openModalEditTask')
-    store.dispatch('setSelectedTask', taskId)
+    store.dispatch('openModalEditTask');
+    store.dispatch('setSelectedTask', taskId);
   }
 
   // handel remove task

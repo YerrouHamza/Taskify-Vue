@@ -1,7 +1,7 @@
 <template>
     <Teleport to="body">
         <Transition name="modal-outer">
-            <div v-show="modalOpen" class="absolute bg-gray-900 w-full bg-opacity-30 min-h-full top-0 left-0 flex justify-center items-center px-8 py-4">
+            <div v-show="modalOpen" class="fixed bg-gray-900 w-full bg-opacity-30 min-h-full top-0 left-0 flex justify-center items-center px-8 sm:px-4 py-4">
                 <Transition name="modal-inner">
                     <div v-if="modalOpen" class="relative w-full max-w-xl max-h-full bg-gray-900">
                         <!-- Modal content -->
@@ -13,7 +13,7 @@
                             </svg>
                         </button>
                         <div class="px-6 py-6 lg:px-8">
-                            <h3 class="mb-14 mr-10 text-3xl font-medium text-gray-50">Add New Task</h3>
+                            <h3 class="mb-14 mr-10 text-3xl sm:text-xl font-medium text-gray-50">Edit Task</h3>
                             <form class="space-y-6" @submit.prevent="addTask">
                                 <div>
                                     <label for="AddTaskTitle" class="block mb-2 text-lg font-medium text-gray-100">Title</label>

@@ -4,14 +4,14 @@ import { createStore } from "vuex";
 
 const store = createStore({
     state: {
-        title: 'test',
         modalAddTask: false,
         modalEditTask: false,
+        selecteTask: null,
         taskList: [
             {
                 id: 0,
                 title: 'test 1',
-                statue: 'in progres' /* 'in progres' 'review', 'done', 'panding' */,
+                statue: 'In Progres' /* 'in progres' 'review', 'done', 'panding' */,
                 text: 'lorem lorem lorem lorem lorem lorem lorem lorem lorem'
             },
             {
@@ -35,11 +35,10 @@ const store = createStore({
             {
                 id: 4,
                 title: 'test 5',
-                statue: 'in progres' /* 'in progres' 'review', 'done', 'panding' */,
+                statue: 'In Progres' /* 'in progres' 'review', 'done', 'panding' */,
                 text: 'lorem lorem lorem lorem lorem lorem lorem lorem lorem'
             }
-        ],
-        lastTaskId: 0,
+        ]
     }, 
     mutations: {
         // remove task
@@ -57,10 +56,14 @@ const store = createStore({
 
         // edit task modal controls
         openModalEditTask(state) {
-            state.modalEditTask = true
+            state.modalEditTask = true;
+            
         },
         closeModalEditTask(state) {
             state.modalEditTask = false
+        },
+        setSelectedTask(state, taskId) {
+            state.selecteTask = state.taskList.find(item => item.id === taskId )
         },
 
         // add task
@@ -72,6 +75,15 @@ const store = createStore({
                 id: index,
                 ...newTask
             })
+        },
+
+        // updated the task
+        updateTask(state, updatedTask) {
+            const index = state.taskList.findIndex((task) => task.id === updatedTask.id);
+            if (index !== -1) {
+              state.taskList[index] = updatedTask;
+            }
+            state.selecteTask = null
         }
     },
     actions: {
@@ -95,11 +107,20 @@ const store = createStore({
         closeModalEditTask({ commit }) {
             commit('closeModalEditTask')
         },
+        setSelectedTask({ commit }, taskId) {
+            commit('setSelectedTask', taskId)
+        },
 
         // add new task
         addTask({commit}, newTask) {
             commit('addTask', newTask);
             commit('closeModalAddTask');
+        },
+
+        // Update existing task
+        updateTask({ commit }, updatedTask) {
+            commit('updateTask', updatedTask);
+            commit('closeModalEditTask');
         }
 
     },

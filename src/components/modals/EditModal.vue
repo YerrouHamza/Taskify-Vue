@@ -35,10 +35,10 @@
                                 </div>
                                 <p class="text-sm text-error" v-show="errorMissage">Please fill in all fields before adding the task.</p>
                                 <button type="submit" class="flex ml-auto text-white bg-gray-300 hover:bg-gray-200 focus:ring-blue-300 font-medium rounded-lg text-md px-5 py-2.5 text-right items-center mr-2 text-gray-900 focus:outline-none focus:ring-1 focus:ring-gray-200" @click="editTask">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-plus" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                    <path d="M12 5l0 14"></path>
-                                    <path d="M5 12l14 0"></path>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-pencil" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                        <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4"></path>
+                                        <path d="M13.5 6.5l4 4"></path>
                                     </svg>
                                     Edit Task
                                 </button>

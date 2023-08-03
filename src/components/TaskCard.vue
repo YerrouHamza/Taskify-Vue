@@ -14,7 +14,7 @@
         </button>
 
         <!-- Delete Button -->
-        <button class="inline-block text-gray-300 hover:bg-gray-600 focus:ring-4 focus:outline-none focus:ring-gray-500 rounded-lg text-sm p-1.5" @click="removeTask(props.id)">
+        <button class="inline-block text-gray-300 hover:bg-[#c53333] hover:text-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-500 rounded-lg text-sm p-1.5" @click="removeTask(props.id)">
           <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="24" height="24" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
             <path d="M4 7l16 0"></path>
@@ -55,11 +55,7 @@
   // handel remove task
   const removeTask = (taskId) => {
     store.commit('removeTask', taskId);
-  };
-
-  store.watch(() => store.state.taskList, (newValue) => {
-    console.log('test', newValue)
-  })
+  }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

@@ -65,7 +65,7 @@ const store = createStore({
         // Fetch tasks from JSON file using Axios
         async fetchTasks({ commit }) {
             try {
-              const response = await axios.get('/tasks.json'); 
+              const response = await axios.get('./tasks.json'); 
               const tasks = response.data.tasks;
               commit('setTaskList', tasks); // Update the Tasks
             } catch (error) {

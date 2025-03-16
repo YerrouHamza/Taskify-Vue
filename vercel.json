@@ -1,8 +1,19 @@
 {
-  "framework": "vue",
-  "buildCommand": "npm run build",
-  "outputDirectory": "dist",
+  "version": 2,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
+      }
+    }
+  ],
   "routes": [
+    {
+      "src": "/tasks.json",
+      "dest": "/tasks.json"
+    },
     {
       "src": "/(.*)",
       "dest": "/index.html"

@@ -69,7 +69,41 @@ const store = createStore({
               const tasks = response.data.tasks;
               commit('setTaskList', tasks); // Update the Tasks
             } catch (error) {
-              console.error('Error:', error);
+              console.error('Error fetching tasks:', error);
+              // Fallback data in case the JSON file can't be loaded
+              const fallbackTasks = [
+                {
+                    "title": "Update User Profile Page",
+                    "text": "Add a new feature to update user profiles with profile picture support.",
+                    "statue": "To Do",
+                    "id": 1
+                },
+                {
+                    "title": "Fix Bug on Login Page",
+                    "text": "Resolve the issue with the login page not rendering properly on certain devices.",
+                    "statue": "Review",
+                    "id": 2
+                },
+                {
+                    "title": "Implement Dashboard Charts",
+                    "text": "Create interactive charts to display user data on the dashboard.",
+                    "statue": "In Hold",
+                    "id": 3
+                },
+                {
+                    "title": "Add Pagination to Data Table",
+                    "text": "Split large data tables into pages to improve performance and user experience.",
+                    "statue": "Pending",
+                    "id": 4
+                },
+                {
+                    "title": "Refactor API Endpoints",
+                    "text": "Clean up and optimize backend API endpoints for improved code maintainability.",
+                    "statue": "In Progress",
+                    "id": 5
+                }
+              ];
+              commit('setTaskList', fallbackTasks);
             }
         },
         // remove task
